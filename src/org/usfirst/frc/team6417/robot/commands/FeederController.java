@@ -7,25 +7,25 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class SorterController extends Command {
+public class FeederController extends Command {
 
 	private Controller controllerType;
-	private double sorterSpeed = 0.3;
+	private double feederSpeed = 0.3;
 
 	public static enum Controller {
 		XBOX, JOYSTICK
 	}
 
-	public SorterController() {
+	public FeederController() {
 		setControllerType(Controller.JOYSTICK);
 		if (Robot.joystickOne.getIsXbox()) {
 			setControllerType(Controller.XBOX);
 		}
 
-		requires(Robot.sorter);
+		requires(Robot.feeder);
 	}
 
-	public SorterController setControllerType(Controller c) {
+	public FeederController setControllerType(Controller c) {
 		this.controllerType = c;
 		return this;
 	}
@@ -38,14 +38,14 @@ public class SorterController extends Command {
 	protected void execute() {
 		switch (controllerType) {
 		case XBOX:
-			if (Robot.runSorterXBox.get()) {
-				Robot.sorter.setSorterSpeed(sorterSpeed);
+			if (Robot.runFeederXBox.get()) {
+				Robot.feeder.setFeederSpeed(feederSpeed);
 			}
 			break;
 
 		case JOYSTICK:
-			if (Robot.runSorterJoystick.get()) {
-				Robot.sorter.setSorterSpeed(sorterSpeed);
+			if (Robot.runFeederJoystick.get()) {
+				Robot.feeder.setFeederSpeed(feederSpeed);
 			}
 			break;
 		}
@@ -58,7 +58,7 @@ public class SorterController extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		System.out.println("SorterController stopped");
+		System.out.println("FeederController stopped");
 
 	}
 

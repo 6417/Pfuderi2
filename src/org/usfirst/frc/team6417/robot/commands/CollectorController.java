@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class CollectorController extends Command {
 
 	private Controller controllerType;
-	private double collectorSpeed = 0.5;
+	private double collectorSpeed = 0.3;
 
 	public static enum Controller {
 		XBOX, JOYSTICK
@@ -38,7 +38,7 @@ public class CollectorController extends Command {
 	protected void execute() {
 		switch (controllerType) {
 		case XBOX:
-			if (Robot.runCollectorXBOX.get()) {
+			if (Robot.runCollectorXBox.get()) {
 				Robot.collector.setCollectorSpeed(collectorSpeed);
 			}
 			break;

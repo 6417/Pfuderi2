@@ -10,35 +10,19 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Drive extends Subsystem {
 
-	private Fridolin motorRight, motorLeft;
+	private Fridolin motorRightOne, motorRightTwo, motorLeftOne, motorLeftTwo;
 
 	/**
 	 * Enables all Drive class features, like access to motor control or to
 	 * encoders
 	 */
 	public Drive() {
-		motorRight = new Fridolin(RobotMap.MOTOR.RIGHT);
-		motorLeft = new Fridolin(RobotMap.MOTOR.LEFT);
+		motorRightOne = new Fridolin(RobotMap.MOTOR.RIGHT_ONE);
+		motorRightTwo = new Fridolin(RobotMap.MOTOR.RIGHT_TWO);
+		motorLeftOne = new Fridolin(RobotMap.MOTOR.LEFT_ONE);
+		motorLeftTwo = new Fridolin(RobotMap.MOTOR.LEFT_TWO);
 	}
 
-
-	/**
-	 * Access Motor
-	 * 
-	 * @return motorFrontRight
-	 */
-	public Fridolin getMotorRight() {
-		return motorRight;
-	}
-
-	/**
-	 * Access Motor
-	 * 
-	 * @return motorRearLeft
-	 */
-	public Fridolin getMotorLeft() {
-		return motorLeft;
-	}
 
 	/**
 	 * Set motorFrontRight speed
@@ -46,7 +30,8 @@ public class Drive extends Subsystem {
 	 * @param speed
 	 */
 	public void setMotorRight(double speed) {
-		motorRight.set(speed);
+		motorRightOne.set(speed);
+		motorRightTwo.set(speed);
 	}
 
 	/**
@@ -55,7 +40,8 @@ public class Drive extends Subsystem {
 	 * @param speed
 	 */
 	public void setMotorLeft(double speed) {
-		motorLeft.set(speed);
+		motorLeftOne.set(speed);
+		motorLeftTwo.set(speed);
 	}
 
 	/**
@@ -119,8 +105,10 @@ public class Drive extends Subsystem {
 	 * Stops robot form driving
 	 */
 	public void stop() {
-		this.motorLeft.stopMotor();
-		this.motorRight.stopMotor();
+		this.motorLeftOne.stopMotor();
+		this.motorLeftTwo.stopMotor();
+		this.motorRightOne.stopMotor();
+		this.motorRightTwo.stopMotor();
 	}
 	public void resetRobot() {
 		this.stop();

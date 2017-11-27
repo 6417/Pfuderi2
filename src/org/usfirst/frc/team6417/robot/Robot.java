@@ -5,10 +5,12 @@ package org.usfirst.frc.team6417.robot;
 import org.usfirst.frc.team6417.robot.commands.CollectorController;
 import org.usfirst.frc.team6417.robot.commands.DriveController;
 import org.usfirst.frc.team6417.robot.commands.DriveController.DriveMode;
+import org.usfirst.frc.team6417.robot.commands.FeederController;
 import org.usfirst.frc.team6417.robot.commands.ShooterController;
 import org.usfirst.frc.team6417.robot.commands.SorterController;
 import org.usfirst.frc.team6417.robot.subsystems.Collector;
 import org.usfirst.frc.team6417.robot.subsystems.Drive;
+import org.usfirst.frc.team6417.robot.subsystems.Feeder;
 import org.usfirst.frc.team6417.robot.subsystems.NavX;
 import org.usfirst.frc.team6417.robot.subsystems.Shooter;
 import org.usfirst.frc.team6417.robot.subsystems.Sorter;
@@ -26,7 +28,7 @@ public class Robot extends IterativeRobot {
 	// Controllers
 	public static Joystick joystickOne;
 	public static Joystick joystickTwo;
-	public static JoystickButton runSorterJoystick, runSorterXBox, runCollectorJoystick, runCollectorXBOX;
+	public static JoystickButton runSorterJoystick, runSorterXBox, runCollectorJoystick, runCollectorXBox, runFeederJoystick, runFeederXBox;
 	public static OI oi;
 
 	// Subsystems
@@ -35,12 +37,14 @@ public class Robot extends IterativeRobot {
 	public static Shooter shooter;
 	public static Sorter sorter;
 	public static Collector collector;
+	public static Feeder feeder;
 
 	// Commands
 	public static DriveController driveController;
 	public static ShooterController shooterController;
 	public static SorterController sorterController;
 	public static CollectorController collectorController;
+	public static FeederController feederController;
 
 	DriveMode driveMode;
 	SendableChooser<DriveMode> driveModeChooser = new SendableChooser<DriveMode>();
@@ -56,10 +60,11 @@ public class Robot extends IterativeRobot {
 		
 		runSorterJoystick = new JoystickButton(joystickOne, RobotMap.JOYSTICK.BUTTONS.SORTER);
 		runCollectorJoystick = new JoystickButton(joystickOne, RobotMap.JOYSTICK.BUTTONS.COLLECTOR);
+		runFeederJoystick = new JoystickButton(joystickOne, RobotMap.JOYSTICK.BUTTONS.FEEDER);
 		
 		runSorterXBox = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.SORTER);
-		runCollectorJoystick = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.COLLECTOR);
-		
+		runCollectorXBox = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.COLLECTOR);
+		runFeederXBox = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.FEEDER);
 		
 
 		navX = new NavX();
@@ -68,6 +73,7 @@ public class Robot extends IterativeRobot {
 		shooter = new Shooter();
 		sorter = new Sorter();
 		collector = new Collector();
+		feeder = new Feeder();
 
 		driveModeChooser.addObject("Tank", DriveMode.TANK);
 		driveModeChooser.addObject("Controller", DriveMode.CONTROLLER);
@@ -133,6 +139,9 @@ public class Robot extends IterativeRobot {
 		
 		collectorController = new CollectorController();
 		collectorController.start();
+		
+		feederController = new FeederController();
+		feederController.start();
 	}
 
 	/**

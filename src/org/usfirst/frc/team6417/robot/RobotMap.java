@@ -19,13 +19,15 @@ public class RobotMap {
 	 * In the RobotMap.MOTOR class the motor ports are
 	 */
 	public static class MOTOR {
-		public static final int LEFT = 0;
-		public static final int RIGHT = 1;
+		public static final int LEFT_ONE = 5;
+		public static final int LEFT_TWO = 3;
+		public static final int RIGHT_ONE = 6;
+		public static final int RIGHT_TWO = 0;
 		public static final int FLYWHEEL_ONE = 2;
-		public static final int FLYWHEEL_TWO = 3;
-		public static final int BALL_FEEDER = 4;
-		public static final int BALL_SORTER = 5;
-		public static final int BALL_COLLECTOR = 6;
+		public static final int FLYWHEEL_TWO = 1;
+		public static final int BALL_FEEDER = 7;
+		public static final int BALL_SORTER = 8;
+		public static final int BALL_COLLECTOR = 4;
 	}
 
 	/**
@@ -72,6 +74,7 @@ public class RobotMap {
 		public static class BUTTONS {
 			public static final int SORTER = 2;
 			public static final int COLLECTOR = 8;
+			public static final int FEEDER = 7;
 		}
 
 		/**
@@ -102,6 +105,7 @@ public class RobotMap {
 			public static final int LEFT_TRIGGER = 2;
 			public static final int SORTER = 6;
 			public static final int COLLECTOR = 8;
+			public static final int FEEDER = 7;
 		}
 
 		public static class DEADZONES {
