@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class FeederController extends Command {
 
 	private Controller controllerType;
-	private double feederSpeed = 0.3;
+	private double feederSpeed = 0.7;
 
 	public static enum Controller {
 		XBOX, JOYSTICK

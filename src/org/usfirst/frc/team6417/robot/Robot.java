@@ -128,17 +128,17 @@ public class Robot extends IterativeRobot {
 		if (driveMode == null) {
 			driveMode = DriveMode.CONTROLLER;
 		}
-		driveController = new DriveController(driveMode);
-		driveController.start();
+		//driveController = new DriveController(driveMode);
+		//driveController.start();
 		
 		shooterController = new ShooterController();
 		shooterController.start();
 		
-		sorterController = new SorterController();
-		sorterController.start();
+		//sorterController = new SorterController();
+		//sorterController.start();
 		
-		collectorController = new CollectorController();
-		collectorController.start();
+		//collectorController = new CollectorController();
+		//collectorController.start();
 		
 		feederController = new FeederController();
 		feederController.start();
