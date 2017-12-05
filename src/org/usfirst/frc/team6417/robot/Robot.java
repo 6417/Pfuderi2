@@ -133,14 +133,14 @@ public class Robot extends IterativeRobot {
 		shooterController = new ShooterController();
 		shooterController.start();
 		
+		feederController = new FeederController();
+		feederController.start();
+		
 		sorterController = new SorterController();
 		sorterController.start();
 		
 		collectorController = new CollectorController();
 		collectorController.start();
-		
-		feederController = new FeederController();
-		feederController.start();
 	}
 
 	/**
