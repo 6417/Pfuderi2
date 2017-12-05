@@ -38,14 +38,26 @@ public class FeederController extends Command {
 	protected void execute() {
 		switch (controllerType) {
 		case XBOX:
-			if (Robot.runFeederXBox.get()) {
+			if (Robot.shootXBox.get()) {
 				Robot.feeder.setFeederSpeed(feederSpeed);
+			}
+			else if(Robot.reverseXBox.get()){
+				Robot.feeder.setFeederSpeed(-feederSpeed);
+			}
+			else {
+				Robot.feeder.setFeederSpeed(0);
 			}
 			break;
 
 		case JOYSTICK:
-			if (Robot.runFeederJoystick.get()) {
+			if (Robot.shootJoystick.get()) {
 				Robot.feeder.setFeederSpeed(feederSpeed);
+			}
+			else if(Robot.reverseJoystick.get()) {
+				Robot.feeder.setFeederSpeed(-feederSpeed);
+			}
+			else {
+				Robot.feeder.setFeederSpeed(0);
 			}
 			break;
 		}

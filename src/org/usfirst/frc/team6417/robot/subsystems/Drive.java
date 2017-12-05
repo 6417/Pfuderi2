@@ -86,19 +86,19 @@ public class Drive extends Subsystem {
 	}
 	
 	public void forward(double speed){
-		this.driveAutonomous(speed,0);
+		this.driveDefault(speed,0);
 	}
 	
 	public void backward(double speed){
-		this.driveAutonomous(-speed, 0);
+		this.driveDefault(-speed, 0);
 	}
 	
 	public void turnRight(double speed){
-		this.driveAutonomous(0, speed);
+		this.driveDefault(0, speed);
 	}
 	
 	public void turnLeft(double speed){
-		this.driveAutonomous(0, -speed);
+		this.driveDefault(0, -speed);
 	}
 
 	/**

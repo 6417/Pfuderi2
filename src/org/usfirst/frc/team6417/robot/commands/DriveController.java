@@ -141,12 +141,12 @@ public class DriveController extends Command {
 				// CHECKME
 				Robot.drive.driveController(
 						deadzone(
-								Robot.joystickOne.getX(),
-								RobotMap.JOYSTICK.DEADZONES.JOYSTICK1_X
-								),
-						deadzone(
 								Robot.joystickTwo.getY(),
 								RobotMap.JOYSTICK.DEADZONES.JOYSTICK1_Y
+								),
+						deadzone(
+								Robot.joystickOne.getX(),
+								RobotMap.JOYSTICK.DEADZONES.JOYSTICK1_X
 								)
 						);
 				break;

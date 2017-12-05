@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ShooterController extends Command {
 
 	private Controller controllerType;
+	private double shooterSpeed = RobotMap.SPEED.SHOOTER;
 
 	public static enum Controller {
 		XBOX, JOYSTICK
@@ -46,12 +47,27 @@ public class ShooterController extends Command {
 
 		switch (controllerType) {
 		case XBOX:
-			Robot.shooter.setShooterSpeed(Robot.joystickOne.getRawAxis(RobotMap.XBOX.BUTTONS.RIGHT_TRIGGER)
-					- Robot.joystickOne.getRawAxis(RobotMap.XBOX.BUTTONS.LEFT_TRIGGER));
+			if(Robot.shootXBox.get()){
+				Robot.shooter.setShooterSpeed(shooterSpeed);
+			}
+			else if(Robot.reverseXBox.get()){
+				Robot.shooter.setShooterSpeed(-shooterSpeed);
+			}
+			else{
+				Robot.shooter.setShooterSpeed(0);
+			}
 			break;
 
 		case JOYSTICK:
-			Robot.shooter.setShooterSpeed(Robot.joystickOne.getThrottle());
+			if(Robot.shootJoystick.get()){
+				Robot.shooter.setShooterSpeed(((Robot.joystickOne.getThrottle() + 1)/2));
+			}
+			else if(Robot.reverseJoystick.get()){
+				Robot.shooter.setShooterSpeed(-shooterSpeed);
+			}
+			else{
+				Robot.shooter.setShooterSpeed(0);
+			}
 			break;
 		}
 	}

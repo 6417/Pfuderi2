@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6417.robot.commands;
 
 import org.usfirst.frc.team6417.robot.Robot;
+import org.usfirst.frc.team6417.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -10,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class CollectorController extends Command {
 
 	private Controller controllerType;
-	private double collectorSpeed = 0.3;
+	private double collectorSpeed = RobotMap.SPEED.COLLECTOR;
 
 	public static enum Controller {
 		XBOX, JOYSTICK
@@ -38,14 +39,23 @@ public class CollectorController extends Command {
 	protected void execute() {
 		switch (controllerType) {
 		case XBOX:
-			if (Robot.runCollectorXBox.get()) {
+			if (Robot.collectXBox.get()) {
 				Robot.collector.setCollectorSpeed(collectorSpeed);
+			}
+			else {
+				Robot.collector.setCollectorSpeed(0);
 			}
 			break;
 
 		case JOYSTICK:
-			if (Robot.runCollectorJoystick.get()) {
+			if (Robot.collectJoystick.get()) {
 				Robot.collector.setCollectorSpeed(collectorSpeed);
+			}
+			else if(Robot.reverseJoystick.get()){
+				Robot.collector.setCollectorSpeed(-collectorSpeed);
+			}
+			else {
+				Robot.collector.setCollectorSpeed(0);
 			}
 			break;
 		}

@@ -14,6 +14,14 @@ public class RobotMap {
 	public static class MATH {
 		public static final double PI = 3.14159265359;
 	}
+	
+	public static class SPEED {
+		public static final double DRIVE = 1;
+		public static final double SHOOTER = 0.7;
+		public static final double FEEDER = 0.7;
+		public static final double SORTRER = 0.7;
+		public static final double COLLECTOR = 0.7;
+	}
 
 	/**
 	 * In the RobotMap.MOTOR class the motor ports are
@@ -36,12 +44,16 @@ public class RobotMap {
 	 */
 	public static class ENCODER {
 		public static final int PULSE_PER_ROTATION = 512;
-		public static final int FLYWHEEL_A = 0;
-		public static final int FLYWHEEL_B = 1;
-		public static final int BALL_FEEDER_A = 2;
-		public static final int BALL_FEEDER_B = 3;
-		public static final int BALL_COLLECTOR_A = 4;
-		public static final int BALL_COLLECTOR_B = 5;
+		public static final int DRIVE_RIGHT_A = 0;
+		public static final int DRIVE_RIGHT_B = 1;
+		public static final int DRIVE_LEFT_A = 2;
+		public static final int DRIVE_LEFT_B = 3;
+		public static final int FLYWHEEL_A = 4;
+		public static final int FLYWHEEL_B = 5;
+		public static final int BALL_FEEDER_A = 6;
+		public static final int BALL_FEEDER_B = 7;
+		public static final int BALL_COLLECTOR_A = 8;
+		public static final int BALL_COLLECTOR_B = 9;
 	}
 
 	/**
@@ -72,7 +84,10 @@ public class RobotMap {
 		}
 
 		public static class BUTTONS {
-			public static final int SORTER = 2;
+			public static final int SHOOT = 1;
+			public static final int COLLECT = 2;
+			public static final int REVERSE = 5;
+			public static final int SORTER = 9;
 			public static final int COLLECTOR = 8;
 			public static final int FEEDER = 7;
 		}
@@ -101,8 +116,9 @@ public class RobotMap {
 		}
 
 		public static class BUTTONS {
-			public static final int RIGHT_TRIGGER = 3;
-			public static final int LEFT_TRIGGER = 2;
+			public static final int SHOOT = 2; /*LEFT_TRIGGER*/
+			public static final int COLLECT = 3; /*RIGHT_TRIGGER*/
+			public static final int REVERSE = 5;
 			public static final int SORTER = 6;
 			public static final int COLLECTOR = 8;
 			public static final int FEEDER = 7;

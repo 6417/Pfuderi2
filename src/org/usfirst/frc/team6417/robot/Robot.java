@@ -28,7 +28,7 @@ public class Robot extends IterativeRobot {
 	// Controllers
 	public static Joystick joystickOne;
 	public static Joystick joystickTwo;
-	public static JoystickButton runSorterJoystick, runSorterXBox, runCollectorJoystick, runCollectorXBox, runFeederJoystick, runFeederXBox;
+	public static JoystickButton shootJoystick, shootXBox, collectJoystick, collectXBox, reverseJoystick, reverseXBox;
 	public static OI oi;
 
 	// Subsystems
@@ -58,14 +58,13 @@ public class Robot extends IterativeRobot {
 		joystickOne = new Joystick(RobotMap.CONTROLLER.RIGHT);
 		joystickTwo = new Joystick(RobotMap.CONTROLLER.LEFT);
 		
-		runSorterJoystick = new JoystickButton(joystickOne, RobotMap.JOYSTICK.BUTTONS.SORTER);
-		runCollectorJoystick = new JoystickButton(joystickOne, RobotMap.JOYSTICK.BUTTONS.COLLECTOR);
-		runFeederJoystick = new JoystickButton(joystickOne, RobotMap.JOYSTICK.BUTTONS.FEEDER);
+		shootJoystick = new JoystickButton(joystickOne, RobotMap.JOYSTICK.BUTTONS.SHOOT);
+		collectJoystick = new JoystickButton(joystickOne, RobotMap.JOYSTICK.BUTTONS.COLLECT);
+		reverseJoystick = new JoystickButton(joystickOne, RobotMap.JOYSTICK.BUTTONS.REVERSE);
 		
-		runSorterXBox = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.SORTER);
-		runCollectorXBox = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.COLLECTOR);
-		runFeederXBox = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.FEEDER);
-		
+		shootXBox = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.SHOOT);
+		collectXBox = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.COLLECT);
+		reverseXBox = new JoystickButton(joystickOne, RobotMap.XBOX.BUTTONS.REVERSE);		
 
 		navX = new NavX();
 		drive = new Drive();
@@ -128,17 +127,17 @@ public class Robot extends IterativeRobot {
 		if (driveMode == null) {
 			driveMode = DriveMode.CONTROLLER;
 		}
-		//driveController = new DriveController(driveMode);
-		//driveController.start();
+		driveController = new DriveController(driveMode);
+		driveController.start();
 		
 		shooterController = new ShooterController();
 		shooterController.start();
 		
-		//sorterController = new SorterController();
-		//sorterController.start();
+		sorterController = new SorterController();
+		sorterController.start();
 		
-		//collectorController = new CollectorController();
-		//collectorController.start();
+		collectorController = new CollectorController();
+		collectorController.start();
 		
 		feederController = new FeederController();
 		feederController.start();

@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class SorterController extends Command {
 
 	private Controller controllerType;
-	private double sorterSpeed = 0.3;
+	private double sorterSpeed = 0.7;
 
 	public static enum Controller {
 		XBOX, JOYSTICK
@@ -38,14 +38,26 @@ public class SorterController extends Command {
 	protected void execute() {
 		switch (controllerType) {
 		case XBOX:
-			if (Robot.runSorterXBox.get()) {
+			if (Robot.shootXBox.get()) {
 				Robot.sorter.setSorterSpeed(sorterSpeed);
+			}
+			else if(Robot.reverseXBox.get()){
+				Robot.sorter.setSorterSpeed(-sorterSpeed);
+			}
+			else{
+				Robot.sorter.setSorterSpeed(0);
 			}
 			break;
 
 		case JOYSTICK:
-			if (Robot.runSorterJoystick.get()) {
+			if (Robot.shootJoystick.get()) {
 				Robot.sorter.setSorterSpeed(sorterSpeed);
+			}
+			else if(Robot.reverseJoystick.get()){
+				Robot.sorter.setSorterSpeed(-sorterSpeed);
+			}
+			else {
+				Robot.sorter.setSorterSpeed(0);
 			}
 			break;
 		}

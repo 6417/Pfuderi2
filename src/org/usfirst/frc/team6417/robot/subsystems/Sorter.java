@@ -22,7 +22,7 @@ public class Sorter extends Subsystem {
 	}
 
 	public void setSorterSpeed(double speed) {
-		sorter.set(speed);
+		sorter.set(-speed);
 	}
 
 	public void stop() {
