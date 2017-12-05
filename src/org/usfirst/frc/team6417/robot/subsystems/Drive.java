@@ -56,8 +56,10 @@ public class Drive extends Subsystem {
 	 *            independent of the translation. [-1.0..1.0]
 	 */
 	public void driveDefault(double y, double rotation) {
-		this.setMotorLeft((y - rotation));
-		this.setMotorRight((y + rotation));
+		double left = (y - rotation);
+		double right = (y + rotation);
+		this.setMotorLeft(left);
+		this.setMotorRight(right);
 	}
 
 	/**

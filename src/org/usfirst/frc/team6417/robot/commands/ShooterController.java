@@ -60,7 +60,7 @@ public class ShooterController extends Command {
 
 		case JOYSTICK:
 			if(Robot.shootJoystick.get()){
-				Robot.shooter.setShooterSpeed(((Robot.joystickOne.getThrottle() + 1)/2));
+				Robot.shooter.setShooterSpeed(((Robot.joystickOne.getThrottle() - 1)/-2));
 			}
 			else if(Robot.reverseJoystick.get()){
 				Robot.shooter.setShooterSpeed(-shooterSpeed);

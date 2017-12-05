@@ -86,7 +86,7 @@ public class RobotMap {
 		public static class BUTTONS {
 			public static final int SHOOT = 1;
 			public static final int COLLECT = 2;
-			public static final int REVERSE = 5;
+			public static final int REVERSE = 3;
 			public static final int SORTER = 9;
 			public static final int COLLECTOR = 8;
 			public static final int FEEDER = 7;

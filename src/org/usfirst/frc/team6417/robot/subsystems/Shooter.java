@@ -63,8 +63,8 @@ public class Shooter extends Subsystem {
 	 * @param speed
 	 */
 	public void setShooterSpeed(double speed) {
-		motorOne.set(speed);
-		motorTwo.set(speed);
+		motorOne.set(-speed);
+		motorTwo.set(-speed);
 	}
 
 
